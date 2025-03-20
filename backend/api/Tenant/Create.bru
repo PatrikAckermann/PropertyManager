@@ -1,0 +1,28 @@
+meta {
+  name: Create
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:3000/tenant
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "vorname": "Max",
+      "nachname": "Müller",
+      "geburtsdatum": "1990-05-15",
+      "email": "max.mueller@example.com",
+      "telefonnummer": "+41 79 123 45 67",
+      "adresse": {
+        "strasse": "Bahnhofstrasse",
+        "hausnummer": "12",
+        "plz": "8001",
+        "stadt": "Zürich"
+      },
+      "mietverträge": []
+    }
+}
