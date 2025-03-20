@@ -1,0 +1,17 @@
+# syntax=docker/dockerfile:1
+
+ARG NODE_VERSION=18.0.0
+ARG PORT=3000
+FROM node:${NODE_VERSION}-alpine
+
+ENV NODE_ENV=production
+ENV PORT=${PORT}
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+RUN npm ci --omit=dev
+
+COPY . .
+EXPOSE ${PORT}
+
+CMD ["node", "main.js"]

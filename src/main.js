@@ -7,6 +7,7 @@ var app = express();
 var mongo = new MongoClient(process.env.connectionString || 'mongodb://root:password@localhost:27017');
 
 app.use(bodyParser.raw({inflate:true, limit: '100kb', type: 'application/json'}));
+app.use(express.static('www'))
 var dbName = "property-manager";
 
 var dependencies = {
