@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var apiController = require('./apiController');
 var mongoService = require('./mongoService');
 var app = express();
-var mongo = new MongoClient(process.env.connectionString || 'mongodb://root:password@localhost:27017');
+var mongo = new MongoClient(process.env.CONNECTION_STRING || 'mongodb://root:password@localhost:27017');
 
 app.use(bodyParser.raw({inflate:true, limit: '100kb', type: 'application/json'}));
 app.use(express.static('www'))

@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  property-manager:
+    image: property-manager:latest
+    build:
+      context: .
+      dockerfile: "./src/dockerfile"
+    ports:
+      - "3000:3000"
+    environment:
+      CONNECTION_STRING: "mongodb://root:password@mongodb:27017/property-manager"
+    depends_on:
+      - mongodb
+    networks:
+      - property-manager-network
+  mongodb:
+    image: mongo:6-jammy
+    ports:
+     - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "root"
+      MONGO_INITDB_ROOT_PASSWORD: "password"
+    volumes:
+      - /data/db:/data/db
+    networks:
+      - property-manager-network
+networks:
+  property-manager-network:
+    driver: bridge
