@@ -15,7 +15,7 @@ var dependencies = {
     mongo: mongo,
 }
 
-var collections = ["tenant", "property", "lease", "contract", "unit", "payment"];
+var collections = ["tenant", "property", "maintenance", "contract", "unit", "payment"];
 for (var collection in collections) {
     collection = collections[collection];
     console.log("Initializing: ", collection);

@@ -4,7 +4,7 @@ class apiController {
         d.express.get(this.endpoint, (req, res) => {
             d[collection].getAll()
                 .then(tenants => {
-                    res.send(tenants);
+                    res.send({length: tenants.length, data: tenants});
                 })
                 .catch(err => {
                     console.log(err);

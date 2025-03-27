@@ -1,0 +1,27 @@
+meta {
+  name: Create
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{address}}/{{endpoint}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "bezeichnung": "Wohnung A1",
+      "typ": "Wohnung",
+      "fläche_m2": 75,
+      "zimmeranzahl": 3,
+      "miete": 2200,
+      "verfügbar_ab": "2025-04-01",
+      "status": "vermietet",
+      "mieter_id": "67e502d5f3b7dfb1fdbc7d66",
+      "liegenschaft_id": "67e5056bf3b7dfb1fdbc7d67",
+      "ausstattungen": ["Balkon", "Küche", "Parkplatz"]
+  
+    }
+}

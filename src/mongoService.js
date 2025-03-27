@@ -25,6 +25,12 @@ class mongoService {
         if (tenant._id === undefined) {
             tenant._id = new ObjectId();
         }
+
+        for (var key in tenant) {
+            if (typeof tenant[key] === "string" && tenant[key].includes("id") && key !== "_id") {
+                tenant[key] = new ObjectId(tenant[key]);
+            }
+        }
         await this.db.insertOne(tenant);
         return tenant;
     }
